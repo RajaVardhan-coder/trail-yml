@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const fetchusers= () => {
+            console.log("hello there")
+            response = fetch('http://localhost:8000/users', {
+                    method: 'GET', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzMsInVzZXJuYW1lIjoia2V5IiwicGFzc3dvcmRfaGFzaCI6IiQyYiQxMiRYYUJ5WjV1eW9sdElrb3E5UTdBeEgueklUNml2Q0JOU21Uc3JEaXZtNy8wcWpBc0g0TWFveSIsInBob25lX25vIjoiNjI4MTA1MDE4NiIsImVtYWlsIjoicmFqYS4xMjNAZ21haWwuY29tIiwiaW1hZ2VfdXJsIjoiIiwia2V5d29yZHMiOiJDLCBDKysifQ.zYX5ZPvSx8IT3mFGKRVhOtzE2o5lHKDsWDnZ5wp_stI'
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    show(data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+        fetchusers()
+
+        function show(data) {
+            let tab =
+                `<tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Keywords</th>
+                    </tr>`;
+
+            // Loop to access all rows 
+            for (let r of data) {
+                tab += `<tr> 
+                <td>${r.username} </td>
+                <td>${r.email}</td>
+                <td>${r.phone_no}</td> 
+                <td>${r.keywords}</td>          
+                </tr>`;
+            }
+            // Setting innerHTML as tab variable
+            document.getElementById("employees").innerHTML = tab;
+        }
+    </script>
+    <script>
+        const fetchusers= () => {
+            console.log("hello there")
+            response = fetch('http://localhost:8000/users', {
+                    method: 'GET', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzMsInVzZXJuYW1lIjoia2V5IiwicGFzc3dvcmRfaGFzaCI6IiQyYiQxMiRYYUJ5WjV1eW9sdElrb3E5UTdBeEgueklUNml2Q0JOU21Uc3JEaXZtNy8wcWpBc0g0TWFveSIsInBob25lX25vIjoiNjI4MTA1MDE4NiIsImVtYWlsIjoicmFqYS4xMjNAZ21haWwuY29tIiwiaW1hZ2VfdXJsIjoiIiwia2V5d29yZHMiOiJDLCBDKysifQ.zYX5ZPvSx8IT3mFGKRVhOtzE2o5lHKDsWDnZ5wp_stI'
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    show(data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+        fetchusers()
+
+        function show(data) {
+            let tab =
+                `<tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Keywords</th>
+                    </tr>`;
+
+            // Loop to access all rows 
+            for (let r of data) {
+                tab += `<tr> 
+                <td>${r.username} </td>
+                <td>${r.email}</td>
+                <td>${r.phone_no}</td> 
+                <td>${r.keywords}</td>          
+                </tr>`;
+            }
+            // Setting innerHTML as tab variable
+            document.getElementById("employees").innerHTML = tab;
+        }
+    </script>
+    <table id="employees"></table>
+</body>
+
+</html>
