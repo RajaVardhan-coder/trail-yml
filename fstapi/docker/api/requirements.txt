@@ -1,0 +1,11 @@
+aiosqlite
+uvicorn
+uvloop
+httptools==0.1.*
+regex
+fastapi
+passlib
+tortoise-orm
+cloudinary
+jinja2
+python-multipart
